@@ -42,13 +42,13 @@ You can see a new file is created with name ‘gmail-auth.db’, we actually use
 
 Now we open file /etc/mail/sendmail.mc and add those lines, right above first “MAILER” definition line, DON’T PUT THE LINES ON TOP OF THE ‘sendmail.mc’ file
 
-```define(`SMART_HOST',`[smtp.gmail.com]')dnl
-define(`RELAY_MAILER_ARGS', `TCP $h 587')dnl
-define(`ESMTP_MAILER_ARGS', `TCP $h 587')dnl
-define(`confAUTH_OPTIONS', `A p')dnl
-TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
-define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
-FEATURE(`authinfo',`hash -o /etc/mail/authinfo/gmail-auth.db')dnl```
+```define(`SMART_HOST',`[smtp.gmail.com]')dnl```
+```define(`RELAY_MAILER_ARGS', `TCP $h 587')dnl```
+```define(`ESMTP_MAILER_ARGS', `TCP $h 587')dnl```
+```define(`confAUTH_OPTIONS', `A p')dnl```
+```TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl```
+```define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl```
+```FEATURE(`authinfo',`hash -o /etc/mail/authinfo/gmail-auth.db')dnl```
 
 Finally, let’s build sendmail again and restart it
 
